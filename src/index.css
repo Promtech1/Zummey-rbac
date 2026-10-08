@@ -1,0 +1,46 @@
+@import "tailwindcss";
+
+/*
+  Design tokens. Tailwind v4 turns every --color-* / --font-* variable in
+  @theme into utilities, e.g. bg-primary, text-accent, bg-accent-soft, font-sans.
+*/
+@theme {
+  --font-sans: "Poppins", ui-sans-serif, system-ui, sans-serif;
+
+  --color-primary: #1e2a5e;        /* navy: buttons, headings */
+  --color-primary-hover: #16204a;
+
+  --color-accent: #f97316;         /* orange: active nav text, dots */
+  --color-accent-soft: #fff1e8;    /* peach: active nav background */
+
+  --color-page: #f7f8fa;           /* very light gray page background */
+  --color-line: #eceef2;           /* soft card borders */
+
+  /* Tinted icon badges */
+  --color-badge-orange: #fff1e8;
+  --color-badge-orange-fg: #f97316;
+  --color-badge-purple: #f3eefe;
+  --color-badge-purple-fg: #7c3aed;
+  --color-badge-blue: #eaf2ff;
+  --color-badge-blue-fg: #2563eb;
+}
+
+body {
+  @apply bg-page text-slate-700 font-sans antialiased;
+}
+
+/* Thin custom scrollbar, used by the order lists (add class "thin-scroll"). */
+.thin-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: #d6d9e0 transparent;
+}
+.thin-scroll::-webkit-scrollbar {
+  width: 6px;
+}
+.thin-scroll::-webkit-scrollbar-thumb {
+  background: #d6d9e0;
+  border-radius: 9999px;
+}
+.thin-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
