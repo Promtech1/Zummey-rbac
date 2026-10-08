@@ -153,13 +153,13 @@ export async function logout(token) {
 //
 // It only exists when BOTH are true:
 //   import.meta.env.DEV            (running `npm run dev`, not a build)
-//   VITE_USE_MOCKS === "true"      (talking to this mock, not a real API)
+//   VITE_USE_MOCKS !== "false"     (talking to this mock, not a real API)
 // Otherwise `loginAs` is null. In `vite build`, import.meta.env.DEV becomes
 // the literal `false`, so the minifier drops this whole function from the
 // production bundle.
 // -----------------------------------------------------------------------------
 export const loginAs =
-  import.meta.env.DEV && import.meta.env.VITE_USE_MOCKS === 'true'
+  import.meta.env.DEV && import.meta.env.VITE_USE_MOCKS !== 'false'
     ? async (userId) => {
         await delay()
         const user = getDb().users.find((u) => u.id === userId)

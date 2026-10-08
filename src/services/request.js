@@ -1,6 +1,9 @@
 import { getStoredToken, notifyUnauthorized } from '../auth/sessionStore'
 
-export const USE_MOCKS = import.meta.env.VITE_USE_MOCKS === 'true'
+// Mocks are ON unless explicitly turned off with VITE_USE_MOCKS=false.
+// (.env is git-ignored, so a fresh clone or a deploy has no VITE_USE_MOCKS;
+// defaulting to mocks keeps the app working until a real backend exists.)
+export const USE_MOCKS = import.meta.env.VITE_USE_MOCKS !== 'false'
 
 // Dev tools (RoleSwitcher, loginAs) need BOTH the dev server and the mock
 // backend. Always false in a production build.

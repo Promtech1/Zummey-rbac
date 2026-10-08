@@ -24,7 +24,7 @@ Other scripts: `npm run build` (production build to `dist/`), `npm run preview` 
 
 | Variable | Default | Meaning |
 |---|---|---|
-| `VITE_USE_MOCKS` | `true` | `true` = use the in-browser mock backend (`src/mocks/`); anything else = call the real API via axios |
+| `VITE_USE_MOCKS` | `true` | Mock backend (`src/mocks/`) is used unless this is set to `false`; `false` = call the real API via axios |
 | `VITE_API_URL` | `/api` | Base URL of the real API (only used when mocks are off) |
 | `VITE_GOOGLE_MAPS_KEY` | empty | Reserved for a future Google Maps version of `TripMap`; the app uses a placeholder map without it |
 
@@ -43,7 +43,7 @@ Mock data lives in `localStorage` (`zummey_mock_db_v1`), so changes like new rid
 
 ## The dev role switcher
 
-In development (`npm run dev`) with `VITE_USE_MOCKS=true`, a **DEV** pill appears at the bottom-right once you're logged in. It is not included in production builds.
+In development (`npm run dev`) with the mocks on (the default), a **DEV** pill appears at the bottom-right once you're logged in. It is not included in production builds.
 
 - **Switch user:** click Admin or Fleet Manager A/B/C to become that user instantly. It asks the mock server for a real session token for that user (the dev-only `loginAs` endpoint), then invalidates every React Query cache so each page refetches with the new scope. If you're on an admin-only page and switch to a fleet manager, the route guard sends you to `/unauthorized`.
 - **Debug panel:** shows the role the frontend thinks you have, your user id, the last API call, the role the *server* saw, and the scope filter it applied, e.g. `filter: {} (admin)` or `filter: { fleetManagerId: 'fm_2' }`.

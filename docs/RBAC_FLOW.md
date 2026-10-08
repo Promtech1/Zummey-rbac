@@ -76,7 +76,7 @@ Only #3 is security. #1 and #2 are UX: they run in the browser, and the browser 
 
 ## Seeing it for yourself (dev only)
 
-The **DEV** pill (bottom-right) appears only with `npm run dev` **and** `VITE_USE_MOCKS=true`.
+The **DEV** pill (bottom-right) appears only with `npm run dev` **and** the mocks on (the default; only `VITE_USE_MOCKS=false` turns them off).
 
 - **Switch user:** Admin / Fleet Manager A (Nosa) / B (Ada) / C (Emeka). It calls the dev-only `loginAs`, then `queryClient.invalidateQueries()` so every page refetches with the new token.
 - **Debug panel:** shows the frontend role, the user id, the last API call, the role the **server** saw, and the scope filter it used.

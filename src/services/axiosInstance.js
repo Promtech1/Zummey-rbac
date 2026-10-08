@@ -1,7 +1,7 @@
 import axios from 'axios'
 import { getStoredToken } from '../auth/sessionStore'
 
-// The real HTTP client, used when VITE_USE_MOCKS is not "true".
+// The real HTTP client, used when VITE_USE_MOCKS=false.
 // VITE_API_URL is optional; set it when a real backend exists.
 const axiosInstance = axios.create({
   baseURL: import.meta.env.VITE_API_URL || '/api',
